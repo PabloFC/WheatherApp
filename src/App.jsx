@@ -12,25 +12,25 @@ function App() {
     error: false,
   });
 
-  const toDate = () => {
-    const months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-    const currentDate = new Date();
-    const date = `${currentDate.getDate()} ${months[currentDate.getMonth()]}`;
-    return date;
-  };
+  // const toDate = () => {
+  //   const months = [
+  //     "January",
+  //     "February",
+  //     "March",
+  //     "April",
+  //     "May",
+  //     "June",
+  //     "July",
+  //     "August",
+  //     "September",
+  //     "October",
+  //     "November",
+  //     "December",
+  //   ];
+  //   const currentDate = new Date();
+  //   const date = `${currentDate.getDate()} ${months[currentDate.getMonth()]}`;
+  //   return date;
+  // };
 
   const searchInput = (e) => {
     if (e.key === "Enter") {
@@ -80,8 +80,6 @@ function App() {
           <div>
             <div className="icon-temp">
               <img
-                // width={100}
-                // height={100}
                 src={`https://openweathermap.org/img/wn/${weather.data.weather[0].icon}@2x.png`}
                 alt="weather icon"
               />
@@ -94,12 +92,30 @@ function App() {
                 {weather.data.name}, <span>{weather.data.sys.country}</span>
               </h2>
             </div>
-            <div className="date">
-              <span>{toDate()}</span>
-            </div>
-            <div className="des-wind">
-              <p>{weather.data.weather[0].description.toUpperCase()}</p>
-              <p>Wind Speed: {weather.data.wind.speed}</p>
+            <div className="wind-speed">
+              <div className="wind-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="icon icon-tabler icons-tabler-outline icon-tabler-wind"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M5 8h8.5a2.5 2.5 0 1 0 -2.34 -3.24" />
+                  <path d="M3 12h15.5a2.5 2.5 0 1 1 -2.34 3.24" />
+                  <path d="M4 16h5.5a2.5 2.5 0 1 1 -2.34 3.24" />
+                </svg>
+              </div>
+              <div>
+                <p>{weather.data.wind.speed} km/h</p>
+                <p>Wind Speed</p>
+              </div>
             </div>
           </div>
         )}

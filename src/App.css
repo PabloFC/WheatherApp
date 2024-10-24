@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Roboto", sans-serif;
 }
 
 .App {
@@ -18,7 +19,9 @@
   align-items: center;
   width: 350px;
   min-height: 450px;
-  background-color: rgb(13, 3, 79);
+  background-color: #3292e7;
+  /* background: -webkit-linear-gradient(180deg, #3292e7, #fafafa);
+  background: linear-gradient(180deg, #3292e7, #fafafa); */
   text-align: center;
   margin: 0px auto;
   border-radius: 12px;
@@ -26,16 +29,12 @@
   /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
 }
 
-/* .city-searchInput {
-  width: 100%;
-} */
-
 .city {
   border: 2px solid rgb(204, 204, 204);
   outline: none;
   border-radius: 20px;
   font-size: 16px;
-  background-color: #e5eef0;
+  background-color: white;
   padding: 6px 30px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4 ease-in-out;
@@ -47,10 +46,23 @@
   padding-bottom: 4px;
 }
 
+.wind-speed {
+  display: flex;
+  align-items: center;
+  padding-top: 28px;
+}
+.wind-speed p:first-child {
+  font-size: 20px;
+  font-weight: bold;
+}
+.wind-icon {
+  padding-right: 4px;
+}
+
 .error-message {
   display: block;
   text-align: center;
   color: #e17a7a;
   font-size: 24px;
   margin-top: auto;
-} */
+}
