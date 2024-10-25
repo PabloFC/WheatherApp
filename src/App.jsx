@@ -1,7 +1,6 @@
 // https://openweathermap.org/
 import { useState } from "react";
 import "./App.css";
-import axios from "axios";
 import { Oval } from "react-loader-spinner";
 
 function App() {
@@ -32,26 +31,27 @@ function App() {
     return date;
   };
 
-  const searchInput = (e) => {
+  const searchInput = async (e) => {
     if (e.key === "Enter") {
       setInput("");
       setWeather({ ...weather, loading: true });
-      axios
-        .get("https://api.openweathermap.org/data/2.5/weather", {
-          params: {
-            q: input,
-            units: "metric",
-            appId: "e1940f4dba6e90f03a07cb981a3c3fd9",
-          },
-        })
-        .then((res) => {
-          console.log(res);
-          setWeather({ data: res.data, loading: false, error: false });
-        })
-        .catch((err) => {
-          console.log(err);
-          setWeather({ ...weather, data: {}, error: true });
-        });
+
+      try {
+        const response = await fetch(
+          `https://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appId=e1940f4dba6e90f03a07cb981a3c3fd9`
+        );
+
+        if (!response.ok) {
+          throw new Error("City not found");
+        }
+
+        const data = await response.json();
+        console.log(data);
+        setWeather({ data: data, loading: false, error: false });
+      } catch (error) {
+        console.log(error);
+        setWeather({ ...weather, data: {}, error: true });
+      }
     }
   };
 
