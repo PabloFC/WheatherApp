@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   color: white;
-  background-color: #f5f5f5;
+  background-color: #212529;
 }
 
 .weather-app {
@@ -55,6 +55,10 @@
 }
 .wind-icon {
   padding-right: 4px;
+}
+
+.date {
+  padding-top: 28px;
 }
 
 .error-message {

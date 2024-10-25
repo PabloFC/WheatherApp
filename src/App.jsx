@@ -12,25 +12,25 @@ function App() {
     error: false,
   });
 
-  // const toDate = () => {
-  //   const months = [
-  //     "January",
-  //     "February",
-  //     "March",
-  //     "April",
-  //     "May",
-  //     "June",
-  //     "July",
-  //     "August",
-  //     "September",
-  //     "October",
-  //     "November",
-  //     "December",
-  //   ];
-  //   const currentDate = new Date();
-  //   const date = `${currentDate.getDate()} ${months[currentDate.getMonth()]}`;
-  //   return date;
-  // };
+  const toDate = () => {
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    const currentDate = new Date();
+    const date = `${currentDate.getDate()} ${months[currentDate.getMonth()]}`;
+    return date;
+  };
 
   const searchInput = (e) => {
     if (e.key === "Enter") {
@@ -116,6 +116,9 @@ function App() {
                 <p>{weather.data.wind.speed} km/h</p>
                 <p>Wind Speed</p>
               </div>
+            </div>
+            <div className="date">
+              <p>{toDate()}</p>
             </div>
           </div>
         )}
